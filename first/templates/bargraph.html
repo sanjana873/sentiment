@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/global.css">
+    
+    <style>
+      
+      input[type=text]{
+        border:solid dimgray;
+      }
+      input[type=password]{
+        border:solid dimgray;
+      }
+  
+      .form-container{
+        position: absolute;
+    top: 15vh;
+    background:#fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #000
+      }
+     
+
+        
+    
+
+    @media only screen and (max-width: 678px){
+        .bg{
+                background-size: 300%;
+        }
+    }
+    
+        
+  </style>
+</head> 
+
+
+<script>
+window.onload = function () {
+var data=JSON.parse("{{data|escapejs}}")
+	
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	
+	title:{
+		text:"Sentiment Analysis"
+	},
+	axisX:{
+		interval: 1
+	},
+	axisY2:{
+		interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "rgba(1,77,101,.1)",
+		title: "Number of customers"
+	},
+	data: [{
+		type: "bar",
+		name: "companies",
+		axisYType: "secondary",
+		color: "#014D65",
+		dataPoints: [
+			{ y: data[0], label: "negative" },
+			{ y: data[1], label: "neutral" },
+			{ y: data[2], label: "positive" },
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <span class="navbar-brand mb=0 h1"><img src="/static/cbitlogo.png" width="40" alt="">  </span>
+        <h3 style="color: white;">Sentiment Analysis</h3>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href=" "class="nav-link" style="color: white;">Admin</a></li>
+            <li class="nav-item"><a href=" " class="nav-link" style="color: white;"></a></li>
+            <li class="nav-item"><a href=" " class="nav-link" style="color: white;"></a></li>
+    
+        </ul>
+      </nav>
+<br><br><br>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
