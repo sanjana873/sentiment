@@ -108,6 +108,9 @@ def results(request):
     query=name
     context={'data':query}
     all_tweets=getTweetsFromTwitter(query,1000)
+    tfidf=TfidfVectorizer(max_df=0.90, min_df=2,max_features=1000,stop_words='english')
+    tfidf_matrix=tfidf.fit_transform(all_tweets)
+    print(tfidf_matrix)
     print(all_tweets)
     data=dumps(plotSentiment(all_tweets))
     print(data)

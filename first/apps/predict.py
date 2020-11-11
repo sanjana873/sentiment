@@ -6,6 +6,6 @@ def load_model(file_name):
     classifier_f.close()
     return classifier
 def predictions(data):
-    classifierNB=load_model('predictions(1).pickle')
-    y_predict_test = classifierNB.predict(data)
-    return y_predict_test
+    with open('apps/predictions.pickle','rb') as f:
+        classifierNB=pickle.load(f)
+    return classifierNB.predict(data)
