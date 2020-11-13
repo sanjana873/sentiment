@@ -37,10 +37,10 @@ def message_cleaning(message):
     return Test_punc_removed_join_clean
 def getTweetsFromTwitter(query, count):
     # keys and tokens from the Twitter Dev Console 
-	consumer_key = 'bWSGQAFtFckS9F67kByLUwpap'
-	consumer_secret = 'XSZ1WzaRtZrvw4vjlXQrTKPo0aHQupaXBnG7pFqBZDv5QMkxWU'
-	access_token = '1076360175752142848-DC5o22190Z8fhZdGTgqObDvS7t60sy'
-	access_token_secret = 'zvMgOBLGl2vmApKAOlL5qGQw5XSHXzRPSXO7HBqOn4cqA'
+	consumer_key = 'eB5Wsm7wmeeN1IvhNtlXaL3F0'
+	consumer_secret = 'mjLKKIX238HKvp3PFtuf4pqLHO1qNAdBVSZdLj8U99kBTUOi6J'
+	access_token = '1326897063079120897-ctEc5EDRa4xawpRinPMq0jkYNcTp55'
+	access_token_secret = '07fMolpHmgBVmzWqGPYzR6ad5R9xyy3irCztw9feFXiXt'
 
 		# attempt authentication 
 	try: 
@@ -111,7 +111,6 @@ def results(request):
     tfidf=TfidfVectorizer(max_df=0.90, min_df=2,max_features=1000,stop_words='english')
     tfidf_matrix=tfidf.fit_transform(all_tweets)
     print(tfidf_matrix)
-    print(all_tweets)
     data=dumps(plotSentiment(all_tweets))
     print(data)
     context ={'data':data}
